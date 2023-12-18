@@ -149,14 +149,19 @@ docker compose -f docker-compose.dev.yml exec app python manage.py createsuperus
 http://localhost:8000
 ```
 
-13. 本番用の設定
+13. staticディレクトリをコピー
+```
+django/staticを、nginx/staticにコピーをする
+```
+
+14. 本番用の設定
 - django/gunicorn.conf.pyをアプリ用に修正する。
 - 本番用Dockerを起動する。
 ```
 docker compose -f docker-compose.prod.yml up -d --build
 ```
 
-14. 本番環境の起動確認する。
+15. 本番環境の起動確認する。
 ```
 http://localhost
 ```
@@ -171,6 +176,8 @@ docker compose -f docker-compose.dev.yml up -d --build
 ```
 docker compose -f docker-compose.prod.yml up -d --build
 ```
+
+
 ---
 
 - Git運用方法
