@@ -175,8 +175,6 @@ docker compose -f docker-compose.prod.yml up -d --build
 
 - Git運用方法
 ```
-# git clone https://github.com/Purewest-Project/TempleManagement.git
-
 # git flow初期化
 git flow init -d
 
@@ -186,7 +184,7 @@ git push -u origin develop
 # featureで開発開始
 git flow feature start feature_name
 (例)
-git flow feature start '#nishi_plot'
+git flow feature start '#first_plot'
 
 # 作業をステージングに上げる
 git add .
@@ -197,12 +195,12 @@ git commit -m '<作業内容>'
 # コミットしたものをPushする
 git push -u origin 'feature/<ブランチ名>'
 (例)
-git push -u origin 'feature/#nishi_plot'
+git push -u origin 'feature/#first_plot'
 
 # featureブランチでの作業終了
 git flow feature finish feature_name
 (例)
-git flow feature finish '#nishi_plot'
+git flow feature finish '#first_plot'
 (これで自動的にdevelopブランチにチェックアウトされる)
 
 ```
