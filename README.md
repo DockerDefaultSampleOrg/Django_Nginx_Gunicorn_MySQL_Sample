@@ -42,6 +42,23 @@ import os
 # ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ['*']
 
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        # 'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
 # MySQLのパラメータを.envから取得
 DATABASES = {
     "default": {
@@ -63,6 +80,7 @@ TIME_ZONE = 'Asia/Tokyo'
 # STATIC_ROOTを設定
 # Djangoの管理者画面にHTML、CSS、Javascriptが適用されます
 STATIC_ROOT = "/static/"
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 ```
 
 4. Djangoアプリ構成を作成する。
@@ -82,29 +100,9 @@ INSTALLED_APPS = [
     '<アプリ名>',
 ]
 
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # 'DIRS': [],
-        'DIRS': [os.path.join(BASE_DIR, '<アプリ名>/templates')],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
-
-
-STATICFILES_DIRS = [os.path.join(BASE_DIR, '<アプリ名>/static')]
-
 ```
 
-6. <アプリ名>ディレクトリの中に、staticディレクトリとtemplatesディレクトリを作成する。
+6. Djangoディレクトリの中に、staticディレクトリとtemplatesディレクトリを作成する。
 
 
 7. Dockerを削除する。
